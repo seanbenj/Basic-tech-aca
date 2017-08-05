@@ -1,0 +1,347 @@
+
+
+CREATE DATABASE Library2017
+
+USE Library2017
+
+DROP TABLE Book_Loans;
+
+CREATE TABLE Publisher (
+Name VARCHAR(50) PRIMARY KEY NOT NULL,
+Address1 VARCHAR(100) NOT NULL,
+Phone VARCHAR(50) NOT NULL,
+);
+
+CREATE TABLE Book (
+bookID INT PRIMARY KEY NOT NULL IDENTITY (200,1),
+Title VARCHAR(50) NOT NULL,
+publisherName VARCHAR(50) FOREIGN KEY REFERENCES Publisher(Name) NOT NULL
+);
+
+CREATE TABLE Library_Branch (
+branchID INT PRIMARY KEY NOT NULL IDENTITY (1,1),
+branchName VARCHAR(50) NOT NULL,
+address2 VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Book_Authors (
+bookID INT FOREIGN KEY REFERENCES Book(bookId) NOT NULL,
+authorName VARCHAR(50)
+);
+
+CREATE TABLE Borrower (
+cardNo INT PRIMARY KEY NOT NULL IDENTITY (2053320,1),
+Name VARCHAR(50) NOT NULL,
+Address3 VARCHAR(100) NOT NULL,
+Phone VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Book_Loans (
+bookID INT FOREIGN KEY REFERENCES Book(bookId) NOT NULL,
+branchID INT FOREIGN KEY REFERENCES Library_Branch(branchID) NOT NULL,
+cardNo INT FOREIGN KEY REFERENCES Borrower(cardNo) NOT NULL,
+dateOut VARCHAR(50) NOT NULL,
+dueDate VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Book_Copies (
+BookId INT FOREIGN KEY REFERENCES Book(bookId) NOT NULL,
+branchID INT FOREIGN KEY REFERENCES Library_Branch(branchID) NOT NULL,
+Num_Copies INT NOT NULL
+);
+
+INSERT INTO Publisher
+(Name,Address1,Phone)
+VALUES
+('Star Text Publishers','7615 Spruce Street 
+Huntington, NY 11743','(251) 546-9442'),
+('Gold Medal Publishing','89 Griffin St. 
+Bronx, NY 10460','(125) 546-4478'),
+('Flipping Pages Publishing','464 Alton Drive 
+New York, NY 10023','(949) 569-4371'),
+('Outback Publishers','98 Logan Court 
+Auburn, NY 13021','(630) 446-8851'),
+('Glory in Titles','9971 El Dorado Lane 
+Brooklyn, NY 11238','(226) 906-2721')
+;
+
+INSERT INTO Book
+(Title,publisherName)
+VALUES
+('Harry Potter and the Philosopher''s Stone','Star Text Publishers'),
+('Harry Potter and the Chamber of Secrets','Star Text Publishers'),
+('The Hobbit','Star Text Publishers'),
+('The Lord of the Rings {complete}','Star Text Publishers'),
+('The Da Vinci Code','Star Text Publishers'),
+('Angel & Demons','Star Text Publishers'),
+('Animal Farm','Gold Medal Publishing'),
+('1984','Gold Medal Publishing'),
+('The Hunger Games','Gold Medal Publishing'),
+('Catching Fire','Gold Medal Publishing'),
+('The Lion, the Witch and the Wardrobe','Flipping Pages Publishing'),
+('The Chronicles of Narnia','Flipping Pages Publishing'),
+('Romeo and Juliet','Flipping Pages Publishing'),
+('Hamlet','Flipping Pages Publishing'),
+('Through the Looking Glass','Outback Publishers'),
+('Alice''s Adventures in Wonderland','Outback Publishers'),
+('The Shining','Outback Publishers'),
+('Wizard And Glass','Outback Publishers'),
+('The Lost Tribe','Glory in Titles'),
+('Egg and the Yolk','Glory in Titles')
+;
+
+INSERT INTO Book_Authors
+(authorName,bookID)
+VALUES
+('J. K. Rowling','201'),
+('J. K. Rowling','202'),
+('J.R.R. Tolkien','203'),
+('J.R.R. Tolkien','204'),
+('Dan Brown','205'),
+('Dan Brown','206'),
+('George Orwell','207'),
+('George Orwell','208'),
+('Suzanne Collins','209'),
+('Suzanne Collins','210'),
+('C. S. Lewis','211'),
+('C. S. Lewis','212'),
+('William Shakespeare','213'),
+('William Shakespeare','214'),
+('Lewis Carroll','215'),
+('Lewis Carroll','216'),
+('Stephen King','217'),
+('Stephen King','218'),
+('Omari Mimi','219'),
+('Omari Mimi','220')
+;
+
+
+INSERT INTO Library_Branch
+(branchName,address2)
+VALUES
+('Sharpstown','20 Maple Avenue 
+San Pedro, CA 90731'),
+('Central','7 W. Adams Lane 
+San Jose, CA 95116'),
+('Middleton','7246 W. Windsor Dr. 
+Carmichael, CA 95608'),
+('Osbartville','601 Sherwood Ave. 
+San Bernardino, CA 92404')
+;
+
+INSERT INTO Book_Copies
+(BookId,branchID,Num_Copies)
+VALUES
+/*branch 1*/
+('201','1','2'),
+('203','1','3'),
+('207','1','2'),
+('211','1','2'),
+('215','1','3'),
+('216','1','2'),
+('218','1','3'),
+('219','1','2'),
+('220','1','2'),
+('202','1','2'),
+/*branch 2*/
+('201','2','2'),
+('205','2','2'),
+('219','2','3'),
+('216','2','2'),
+('212','2','3'),
+('205','2','2'),
+('204','2','2'),
+('202','2','2'),
+('213','2','3'),
+('217','2','2'),
+/*branch 3*/
+('218','3','2'),
+('213','3','2'),
+('208','3','3'),
+('210','3','2'),
+('214','3','2'),
+('201','3','3'),
+('203','3','2'),
+('206','3','2'),
+('209','3','3'),
+('217','3','2'),
+/*branch 4*/
+('212','4','2'),
+('206','4','2'),
+('207','4','3'),
+('210','4','2'),
+('202','4','2'),
+('213','4','3'),
+('204','4','2'),
+('220','4','2'),
+('205','4','3'),
+('211','4','2')
+;
+
+INSERT INTO Borrower
+(Name,Address3,Phone)
+Values
+/*CardHolder1*/
+('Frank White','645 Lakewood Road 
+South Gate, CA 90280','(259) 911-8508'),
+/*CardHolder2*/
+('Alpacino','65 Virginia St. 
+Hayward, CA 94544','(876) 697-9279'),
+/*CardHolder3*/
+('Tupac','707 Bay Drive 
+San Marcos, CA 92069','(476) 959-1583'),
+/*CardHolder4*/
+('Al Green','98 San Pablo Dr. 
+Huntington Park, CA 90255','(501) 276-9695'),
+/*CardHolder5*/
+('Maddona','67 E. Carpenter Dr. 
+Fountain Valley, CA 92708','(309) 440-9170'),
+/*CardHolder6*/
+('Sylvester Stallone','9220 Pulaski St. 
+Los Angeles, CA 90003','(787) 569-1903'),
+/*CardHolder7*/
+('DMX','982 Pearl St. 
+Bakersfield, CA 93309','(637) 225-6939'),
+/*CardHolder8*/
+('Kendrick Lamar','7 Trusel St. 
+Riverside, CA 92503','(951) 309-9470')
+;
+
+SELECT * FROM Book;
+
+INSERT INTO Book_Loans
+(bookID,branchID,cardNo,dateOut,dueDate)
+VALUES
+/*PERSON 1 loans*/
+('201','1','2053320','08-04-2017','09-04-2017'),
+('202','1','2053320','08-04-2017','09-04-2017'),
+('203','1','2053320','08-04-2017','09-04-2017'),
+('204','2','2053320','08-04-2017','09-04-2017'),
+('218','1','2053320','07-04-2017','08-04-2017'),
+('207','1','2053320','07-04-2017','08-04-2017'),
+('213','2','2053320','07-25-2017','08-25-2017'),
+('217','2','2053320','07-25-2017','08-25-2017'),
+('216','2','2053320','07-25-2017','08-25-2017'),
+('219','1','2053320','07-25-2017','08-25-2017'),
+/*PERSON 2 loans*/
+('219','2','2053321','07-04-2017','08-04-2017'),
+('220','1','2053321','07-04-2017','08-04-2017'),
+('218','1','2053321','07-10-2017','08-10-2017'),
+('212','2','2053321','07-01-2017','08-01-2017'),
+('213','2','2053321','07-01-2017','08-01-2017'),
+('207','1','2053321','07-04-2017','08-04-2017'),
+('208','3','2053321','07-04-2017','08-04-2017'),
+('214','3','2053321','07-10-2017','08-10-2017'),
+('201','1','2053321','07-04-2017','08-04-2017'),
+('202','1','2053321','07-01-2017','08-01-2017'),
+/*PERSON 3 loans*/
+('211','4','2053322','07-10-2017','08-10-2017'),
+('212','4','2053322','07-10-2017','08-10-2017'),
+('220','4','2053322','07-10-2017','08-10-2017'),
+('204','4','2053322','07-10-2017','08-10-2017'),
+('202','4','2053322','07-21-2017','08-21-2017'),
+('206','4','2053322','07-21-2017','08-21-2017'),
+('213','4','2053322','07-21-2017','08-21-2017'),
+('209','3','2053322','07-14-2017','08-14-2017'),
+('203','3','2053322','07-14-2017','08-14-2017'),
+('210','3','2053322','07-14-2017','08-14-2017'),
+/*PERSON 4 loans*/
+('211','4','2053323','07-10-2017','08-10-2017'),
+('219','2','2053323','07-14-2017','08-14-2017'),
+('213','2','2053323','07-10-2017','08-10-2017'),
+('212','4','2053323','07-15-2017','08-15-2017'),
+('220','4','2053323','07-15-2017','08-15-2017'),
+/*PERSON 5 loans*/
+('217','2','2053324','08-04-2017','09-04-2017'),
+('219','2','2053324','08-04-2017','09-04-2017'),
+('204','4','2053324','07-25-2017','08-25-2017'),
+('205','4','2053324','07-25-2017','08-25-2017'),
+('202','4','2053324','07-25-2017','08-25-2017'),
+/*PERSON 6 loans*/
+('207','4','2053325','07-21-2017','08-21-2017'),
+('210','4','2053325','07-21-2017','08-21-2017'),
+('201','3','2053325','08-04-2017','09-04-2017'),
+('217','3','2053325','08-04-2017','09-04-2017'),
+('218','3','2053325','08-04-2017','09-04-2017'),
+/*PERSON 7 loans*/
+('218','3','2053326','07-25-2017','08-25-2017'),
+('217','3','2053326','07-25-2017','08-25-2017'),
+('201','3','2053326','07-25-2017','08-25-2017'),
+('207','4','2053326','07-01-2017','08-01-2017'),
+('210','4','2053326','07-01-2017','08-01-2017')
+;
+
+
+
+/*DRILL QUERYS SECTION*/
+
+USE Library2017
+
+/*DRILL QUERY 1*/
+SELECT a.Title, c.branchName, b.Num_Copies
+FROM Book a
+INNER JOIN Book_Copies b
+ON b.BookId = a.BookID
+INNER JOIN Library_Branch c
+ON b.branchID = c.branchID
+WHERE c.branchName LIKE 'Sharpstown'
+AND a.Title LIKE 'The Lost Tribe'
+;
+
+/*DRILL QUERY 2*/
+SELECT a.Title, c.branchName, b.Num_Copies
+FROM Book a
+INNER JOIN Book_Copies b
+ON b.BookId = a.BookID
+INNER JOIN Library_Branch c
+ON b.branchID = c.branchID
+WHERE a.Title LIKE 'The Lost Tribe' 
+;
+
+/*DRILL QUERY 3*/
+SELECT a.name, a.cardNo, b.bookID
+FROM Borrower a
+FULL OUTER JOIN Book_loans b
+ON a.cardNo = b.cardNo
+WHERE b.bookID IS NULL;
+
+/*DRILL QUERY 4*/
+SELECT a.branchName, b.bookID, b.dueDate, b.cardNo, c.Name, c.Address3
+FROM Library_Branch a
+INNER JOIN Book_Loans b
+ON a.branchID = b.branchID
+INNER JOIN Borrower c
+ON b.cardNo = c.cardNo
+WHERE a.branchName = 'Sharpstown'
+AND b.dueDate = '08-04-2017'
+;
+
+/*DRILL QUERY 5*/
+SELECT a.branchName AS 'Branch Name', COUNT(b.bookID) AS 'Total Books On Loan'
+FROM Library_Branch a
+INNER JOIN Book_Loans b
+ON a.branchID = b.branchID
+GROUP BY a.branchName
+;
+
+  
+/*DRILL QUERY 6*/
+SELECT a.Name AS 'Name', a.Address3 AS 'Address', COUNT(b.bookID) AS 'Total Books On Loan'
+FROM Borrower a
+INNER JOIN Book_Loans b
+ON a.cardNo = b.cardNo 
+GROUP BY a.Name, a.Address3
+HAVING COUNT(b.bookID) > 5
+;
+/*DRILL QUERY 7*/
+SELECT a.branchName, c.Title, b.Num_Copies
+FROM Library_Branch a
+INNER JOIN Book_Copies b
+ON b.branchID = a.branchID
+INNER JOIN Book c
+ON b.bookID = c.bookID
+INNER JOIN Book_Authors e
+ON c.bookID = e.bookID
+WHERE a.branchName = 'Central'
+AND e.authorName = 'Stephen King'
+;
