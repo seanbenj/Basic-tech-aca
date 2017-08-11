@@ -34,7 +34,7 @@ namespace LS3Challenge2
                 (pepperoniCheckBox.Checked && greenPepCheckBox.Checked && anchoviesCheckBox.Checked ||
                 pepperoniCheckBox.Checked && redPepCheckBox.Checked && onionsCheckBox.Checked) ? -2 : 0;
             double pizzaCalc = (size1 + size2 + size3 + crust + Pepperoni + Onions + greenPeppers + redPeppers + Anchovies + discount);
-            purchaseLabel.Text = "total:" + pizzaCalc;
+            purchaseLabel.Text = "total:$" + pizzaCalc + ".00";
         }
     }
 }
