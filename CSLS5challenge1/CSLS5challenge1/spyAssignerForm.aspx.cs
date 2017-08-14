@@ -11,7 +11,7 @@ namespace CSLS5challenge1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+        
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -19,6 +19,7 @@ namespace CSLS5challenge1
             var prevAssign = endPrevCalendar.SelectedDate;
             var starAssign = starNewCalendar.SelectedDate;
             var endAssign = endNewCalendar.SelectedDate;
+            DateTime Minimum = DateTime.Parse("08/28/2017");
             string spyName = nameTextBox.Text;
             string spyLocation = locationTextBox.Text; 
             string error = "Error must allow at least two weeks between previous assignment and new assignment.";
@@ -30,6 +31,7 @@ namespace CSLS5challenge1
             if (starAssign < prevAssign.AddDays(14))
             {
                 assignDetail.Text = error;
+                starNewCalendar.SelectedDate = Minimum;
             }
 
             else if (totalAssignment < 21)
@@ -42,7 +44,7 @@ namespace CSLS5challenge1
                     payAmount);
             }
             else if (totalAssignment >= 21)
-            {
+            { 
                 assignDetail.Text = String.Format("Assignment of: {0}" +
                     " to assignment Project: {1}" +
                     " is authorized. Budget total: {2:C}",
