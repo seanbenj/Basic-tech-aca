@@ -12,18 +12,18 @@
     
         Postal Calculator<br />
         <br />
-        Width:<asp:TextBox ID="widthTextBox" runat="server" OnTextChanged="widthTextBox_TextChanged" AutoPostBack="True"></asp:TextBox>
+        Width:<asp:TextBox ID="widthTextBox" runat="server" OnTextChanged="handleChange" AutoPostBack="True"></asp:TextBox>
         <br />
-        Height:<asp:TextBox ID="heightTextBox" runat="server" OnTextChanged="heightTextBox_TextChanged" AutoPostBack="True"></asp:TextBox>
+        Height:<asp:TextBox ID="heightTextBox" runat="server" OnTextChanged="handleChange" AutoPostBack="True"></asp:TextBox>
         <br />
-        Length:<asp:TextBox ID="LengthTextBox" runat="server" OnTextChanged="LengthTextBox_TextChanged" AutoPostBack="True"></asp:TextBox>
+        Length:<asp:TextBox ID="LengthTextBox" runat="server" OnTextChanged="handleChange" AutoPostBack="True"></asp:TextBox>
         <br />
         <br />
-        <asp:RadioButton ID="groundRadioButton" runat="server" Text="Ground" GroupName="shipTypes" AutoPostBack="True" OnCheckedChanged="groundRadioButton_CheckedChanged" />
+        <asp:RadioButton ID="groundRadioButton" runat="server" Text="Ground" GroupName="shipTypes" AutoPostBack="True" OnCheckedChanged="handleChange" />
         <br />
-        <asp:RadioButton ID="airRadioButton" runat="server" GroupName="shipTypes" Text="Air" AutoPostBack="True" OnCheckedChanged="airRadioButton_CheckedChanged" />
+        <asp:RadioButton ID="airRadioButton" runat="server" GroupName="shipTypes" Text="Air" AutoPostBack="True" OnCheckedChanged="handleChange" />
         <br />
-        <asp:RadioButton ID="nextDayRadioButton" runat="server" GroupName="shipTypes" Text="Next Day" AutoPostBack="True" OnCheckedChanged="nextDayRadioButton_CheckedChanged" />
+        <asp:RadioButton ID="nextDayRadioButton" runat="server" GroupName="shipTypes" Text="Next Day" AutoPostBack="True" OnCheckedChanged="handleChange" />
         <br />
         <asp:Label ID="totalShippingLabel" runat="server"></asp:Label>
     

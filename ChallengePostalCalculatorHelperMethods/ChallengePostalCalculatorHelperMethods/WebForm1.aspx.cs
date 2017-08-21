@@ -11,7 +11,7 @@ namespace ChallengePostalCalculatorHelperMethods
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         // see if the values are there.
@@ -64,34 +64,11 @@ namespace ChallengePostalCalculatorHelperMethods
             totalShippingLabel.Text = String.Format("Your parcel will cost {0:C} to ship", cost);
         }
 
-        protected void groundRadioButton_CheckedChanged(object sender, EventArgs e)
+        protected void handleChange(object sender, EventArgs e)
         {
             performChanged();
         }
-
-        protected void airRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            performChanged();
-        }
-
-        protected void nextDayRadioButton_CheckedChanged(object sender, EventArgs e)
-        {
-            performChanged();
-        }
-
-        protected void widthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            performChanged();
-        }
-
-        protected void heightTextBox_TextChanged(object sender, EventArgs e)
-        {
-            performChanged();
-        }
-
-        protected void LengthTextBox_TextChanged(object sender, EventArgs e)
-        {
-            performChanged();
-        }
+       
+    
     }
 }
