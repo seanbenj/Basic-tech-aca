@@ -241,3 +241,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /WebApplication1
+/CSLS7Challenge1
+/WebApplication2
