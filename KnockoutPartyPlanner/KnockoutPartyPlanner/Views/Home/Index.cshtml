@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+
+<h2>Party Planner</h2>
+
+<p>Party Name: <input data-bind="value: partyName" /></p>
+<p>Party Location: <input data-bind="value: partyLocation" /></p>
+<p>Party Start Time: <input data-bind="value: partyStartTime" /></p>
+<p>Party End Time: <input data-bind="value: partyEndTime" /></p>
+
+<p>Your Party!: <span data-bind="text: partyDetail"></span></p>
+
+Party Supplies Needed: <br />
+<p><input id="Checkbox" type="checkbox" />Soda</p> 
+<p><input id="Checkbox" type="checkbox" />Chips</p> 
+<p><input id="Checkbox" type="checkbox" />Beer</p> 
+<p><input id="Checkbox" type="checkbox" />Wine</p> 
+<p><input id="Checkbox" type="checkbox" />Chicken Wings</p> 
+<p><input id="Checkbox" type="checkbox" />Dip</p>
+<p><input id="Checkbox" type="checkbox" />Liquor</p>
+<p><input id="Checkbox" type="checkbox" />Cookies</p>
+
+<script type="text/javascript">
+
+    var viewModel = {
+        partyName : ko.observable(""),
+        partyLocation : ko.observable(""),
+        partyStartTime : ko.observable(""),
+        partyEndTime: ko.observable("")
+    };
+    viewModel.partyDetail = ko.dependentObservable(function () {
+        return "  Name:  " + this.partyName() + "  Location:  " + this.partyLocation() +
+        "  Start Time:  " + this.partyStartTime() + "  End Time:  " + this.partyEndTime();
+    }, viewModel)
+    ko.applyBindings(viewModel);
+
+
+</script>
