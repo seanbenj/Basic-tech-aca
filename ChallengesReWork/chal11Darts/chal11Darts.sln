@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "chal11Darts", "chal11Darts\chal11Darts.csproj", "{7B357BE7-B81C-41A1-BA79-6697CD5D94FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Darts", "Darts\Darts.csproj", "{9C1549F5-28C4-434B-ACB9-C9F65290801A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B357BE7-B81C-41A1-BA79-6697CD5D94FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B357BE7-B81C-41A1-BA79-6697CD5D94FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B357BE7-B81C-41A1-BA79-6697CD5D94FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B357BE7-B81C-41A1-BA79-6697CD5D94FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1549F5-28C4-434B-ACB9-C9F65290801A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1549F5-28C4-434B-ACB9-C9F65290801A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1549F5-28C4-434B-ACB9-C9F65290801A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1549F5-28C4-434B-ACB9-C9F65290801A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
