@@ -31,7 +31,7 @@ namespace GameOWarChal13
 
         Battle battle = new Battle();
 
-        // Show user war game until one player has no cards.
+        // display war game until one player has no cards.
         public string GameOWar(Deck deck, Player _player1, Player _player2)
         {
             string result = "";
@@ -49,7 +49,7 @@ namespace GameOWarChal13
             return result;
         }
 
-        // show a battle to user.
+        // display a battle to user.
         public string displayBattleRound(Player player1, Player player2, Card batCard1, Card batCard2)
         {
             string result = string.Format
